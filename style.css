@@ -24,6 +24,11 @@ body {
     margin: 0;
 }
 
+section {
+    min-height: 50svh;
+    padding-bottom: 2rem;
+}
+
 h1 {
     font-size: 64px;
     margin: 0;
@@ -36,7 +41,7 @@ h2 {
 
 p {
     font-size: 24px;
-    margin: 0;
+    margin-top: 0;
 }
 
 .button {
@@ -95,7 +100,7 @@ p {
     position: relative;
 }
 
-.glint::after {
+.glint::before {
     content: var(--glint-text);
     position: absolute;
     top: 0;
@@ -107,7 +112,7 @@ p {
     -webkit-text-fill-color: transparent;
 }
 
-.glint:hover::after {
+.glint:hover::before {
     animation: glint 5s linear infinite;
 }
 
@@ -121,6 +126,31 @@ p {
     to {
         background-position: 0 -300%;
     }
+}
+
+.subtitle {
+    margin-bottom: 0.5em;
+    padding-left: 0.5em;
+    width: min-content;
+    white-space: nowrap;
+    border-bottom: var(--primary-color) 0.0625em solid;
+    position: relative;
+}
+
+.subtitle::after {
+    content: '';
+    display: block;
+    height: 0.375em;
+    width: 0.375em;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -0.25em;
+    left: 0;
+}
+
+.subtitle.glint::before {
+    left: 1rem;
 }
 
 #links {

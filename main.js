@@ -3,7 +3,8 @@ const config = {
         discord: 'https://example.com/discord',
         github: 'https://github.com/euclid9099',
         mail: 'mailto:mail@example.com',
-        issues: 'https://github.com/euclid9099/portfolio/issues/new'
+        issues: 'https://github.com/euclid9099/portfolio/issues/new',
+        school: 'https://example.org/school'
     }
 }
 
