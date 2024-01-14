@@ -1,8 +1,8 @@
 :root {
     --font-color: #31003d;
     --bg-color: #ced4e9;
-    --primary-color: #1DE4FF;
-    --accent-color: #F800EE;
+    --primary-color: #1fe5ff;
+    --accent-color: #fa00f2;
     --border-width: 3px
 }
 
@@ -10,6 +10,8 @@
     :root {
         --font-color: #F2C0FF;
         --bg-color: #161C30;
+        --primary-color: #1DE4FF;
+        --accent-color: #F800EE;
     }
 }
 
@@ -55,6 +57,22 @@ h2 {
     box-shadow: 0.25rem -0.25rem 0 var(--font-color);
 }
 
+.hyperlink {
+    display: inline-block;
+    color: var(--font-color);
+    text-decoration-color: var(--font-color);
+}
+
+.hyperlink:hover {
+    color: var(--primary-color);
+    text-decoration-color: var(--primary-color);
+}
+
+.hyperlink:visited:hover {
+    color: var(--accent-color);
+    text-decoration-color: var(--accent-color);
+}
+
 #links {
     position: absolute;
     left: 0;
@@ -98,7 +116,72 @@ h2 {
 }
 
 #navigation {
+    white-space: nowrap;
 
+    transition: 
+        max-width 0.25s ease-in-out
+        max-height 0.25s ease-in-out;
+
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1rem;
+    max-width: 4rem;
+
+    border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
+    border-width: 0 0 0 var(--border-width);
+    border-style: solid;
+}
+
+#navigation::before,#navigation::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 0;
+
+    position: absolute;
+    left: calc(-1 * var(--border-width));
+}
+
+#navigation::before {
+    top: 0;
+    transform-origin: top left;
+    transform: rotate(-45deg);
+    border-top: var(--primary-color) var(--border-width) solid;
+}
+
+#navigation::after {
+    bottom: 0;
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+    border-bottom: var(--accent-color) var(--border-width) solid;
+}
+
+#navigation > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+
+    z-index: 1;
+}
+
+#navigation:hover > ul {
+    display: block;
+}
+
+#navigation li {
+    width: min-content;
+}
+
+#navigation:hover #current-header {
+    display: none;
+}
+
+#current-header {
+    width: 1em;
+    writing-mode: vertical-lr;
 }
 
 #content {
