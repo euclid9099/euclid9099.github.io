@@ -16,6 +16,7 @@
 }
 
 :root {
+    font-family: Roboto Mono;
     background-color: var(--bg-color);
     color: var(--font-color);
 }
