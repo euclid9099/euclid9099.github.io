@@ -35,11 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //get longest header to avoid resizing of navigation
-    longestHeaderLength = Array.from(document.querySelectorAll('section'))
+    let sections = document.querySelectorAll('section');
+    longestHeaderLength = Array.from(sections)
         .map(section => section.getAttribute('id').length)
         .reduce((max, number) => Math.max(max, number));
     document.getElementById('current-header').textContent = fillChar.repeat(longestHeaderLength);
     setTargetHeader(document.querySelector('section').id);
+
+    document.querySelectorAll('.glint').forEach((text) => {
+        text.style.setProperty('--glint-text', `"${text.textContent}"`);
+    });
 
     //get width of navigation for clean animation
     document.getElementById('navigation').style.setProperty('--link-width', longestHeaderLength);
