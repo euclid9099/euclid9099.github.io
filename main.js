@@ -4,8 +4,12 @@ const config = {
         github: 'https://github.com/euclid9099',
         mail: 'mailto:mail@example.com',
         issues: 'https://github.com/euclid9099/portfolio/issues/new',
-        school: 'https://example.org/school'
-    }
+        school: 'https://example.org/school',
+        ourTanks: 'https://github.com/euclid9099/OurTanks',
+        kornelja: 'https://github.com/euclid9099/messageboard',
+        monhike: 'https://github.com/stephan418/monhike',
+    },
+    corners: 4
 }
 
 let targetHeader = ''
@@ -34,18 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
     longestHeaderLength = Array.from(document.querySelectorAll('section'))
         .map(section => section.getAttribute('id').length)
         .reduce((max, number) => Math.max(max, number));
-    document.getElementById('current-header').textContent = '-'.repeat(longestHeaderLength);
+    document.getElementById('current-header').textContent = fillChar.repeat(longestHeaderLength);
     setTargetHeader(document.querySelector('section').id);
 
-    //randomly offset skill gauges
-    document.querySelectorAll('div.skill-gauge h3').forEach((gauge) => {
-        gauge.style.top = Math.random() * 50 + '%';
-        gauge.style.left = Math.random() * 50 + '%';
-    })
-
     //get width of navigation for clean animation
-    let width = document.querySelector('#navigation-content ul').getBoundingClientRect().width;
-    document.getElementById('navigation').style.setProperty('--link-width', width + 'px');
+    document.getElementById('navigation').style.setProperty('--link-width', longestHeaderLength);
+
+    //randomly use corners for projects
+    document.querySelectorAll('article.project').forEach((project) => {
+        project.style.setProperty('--corner-svg', `url(corners/corner${Math.floor(Math.random() * config.corners)}.svg)`);
+    });
 });
 
 document.addEventListener('scroll', () => {

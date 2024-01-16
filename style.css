@@ -1,17 +1,21 @@
 :root {
     --font-color: #31003d;
     --bg-color: #ced4e9;
-    --primary-color: #1fe5ff;
-    --accent-color: #fa00f2;
-    --border-width: 3px
+    --primary-color: #1916d3;
+    --accent-color: #954c93;
+    --similitude: 255, 255, 255;
+    --contrast: 0, 0, 0;
+    --border-width: 3px;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root { 
         --font-color: #F2C0FF;
         --bg-color: #161C30;
         --primary-color: #1DE4FF;
         --accent-color: #F800EE;
+        --similitude: 0, 0, 0;
+        --contrast: 255, 255, 255;
     }
 }
 
@@ -27,7 +31,7 @@ body {
 
 section {
     min-height: 50svh;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
 }
 
 h1 {
@@ -37,6 +41,11 @@ h1 {
 
 h2 {
     font-size: 36px;
+    margin: 0;
+}
+
+h3 {
+    font-size: 32px;
     margin: 0;
 }
 
@@ -252,7 +261,7 @@ p {
 }
 
 #navigation:hover {
-    width: var(--link-width);
+    width: calc(var(--link-width) * 1ch);
 }
 
 #navigation:hover #navigation-content {
@@ -335,8 +344,12 @@ p {
     line-height: 4em;
     width: 4em;
     height: 4em;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
     margin: 0;
-    padding: 0.25em;
+    padding: 0.1em;
+    background-color: rgba(var(--similitude), 0.2);
     border: 0.25em solid var(--primary-color);
     border-radius: 50%;
     mask: linear-gradient(white, white) content-box,
@@ -358,6 +371,63 @@ p {
             --confidence: 0%;
         }
     }
+}
+
+#projects > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+article.project {
+    border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
+    border-style: solid;
+    border-width: 1px;
+
+    position: relative;
+    overflow: visible;
+
+    background-color: rgba(var(--similitude), 0.2);
+}
+
+article.project::before,article.project::after {
+    content: '';
+    position: absolute;
+    width: 3rem;
+
+    aspect-ratio: 7 / 5;
+    mask: var(--corner-svg);
+    mask-size: contain;
+}
+
+article.project::before {
+    top: 0;
+    left: 0;
+    translate: calc((10/70) * -100%) -20%;
+    background: var(--primary-color);
+}
+
+article.project::after {
+    bottom: 0;
+    right: 0;
+    translate: calc((10/70) * 100%) 20%;
+    rotate: 180deg;
+    background: var(--accent-color);
+}
+
+.project-title {
+    text-align: center;
+    margin-top: 0.25em;
+}
+
+.project-description {
+    margin: 0.5rem;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: center;
 }
 
 #impressum {
