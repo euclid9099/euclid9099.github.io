@@ -23,22 +23,29 @@ const setTargetHeader = (value) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    //replace 'config:...' links with configured ones
     document.querySelectorAll('a').forEach((link) => {
         if (!link.getAttribute('href')?.startsWith('config:')) return;
 
         link.setAttribute('href', config.links[link.getAttribute('href').split(':')[1]]);
     });
 
+    //get longest header to avoid resizing of navigation
     longestHeaderLength = Array.from(document.querySelectorAll('section'))
         .map(section => section.getAttribute('id').length)
         .reduce((max, number) => Math.max(max, number));
     document.getElementById('current-header').textContent = '-'.repeat(longestHeaderLength);
     setTargetHeader(document.querySelector('section').id);
 
+    //randomly offset skill gauges
     document.querySelectorAll('div.skill-gauge h3').forEach((gauge) => {
         gauge.style.top = Math.random() * 50 + '%';
         gauge.style.left = Math.random() * 50 + '%';
     })
+
+    //get width of navigation for clean animation
+    let width = document.querySelector('#navigation-content ul').getBoundingClientRect().width;
+    document.getElementById('navigation').style.setProperty('--link-width', width + 'px');
 });
 
 document.addEventListener('scroll', () => {

@@ -169,7 +169,7 @@ p {
 #links::before,#links::after {
     content: '';
     display: block;
-    width: 50%;
+    width: 3rem;
     height: 0;
 
     position: absolute;
@@ -199,16 +199,14 @@ p {
 #navigation {
     white-space: nowrap;
 
-    transition: 
-        max-width 0.25s ease-in-out
-        max-height 0.25s ease-in-out;
+    transition: width 0.3s ease-out;
 
     position: fixed;
     right: 0;
     top: 50vh;
     transform: translateY(-50%);
     padding: 1rem;
-    max-width: 4rem;
+    width: 2rem;
 
     border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
     border-width: 0 0 0 var(--border-width);
@@ -218,7 +216,7 @@ p {
 #navigation::before,#navigation::after {
     content: '';
     display: block;
-    width: 50%;
+    width: 3rem;
     height: 0;
 
     position: absolute;
@@ -239,30 +237,55 @@ p {
     border-bottom: var(--accent-color) var(--border-width) solid;
 }
 
-#navigation > ul {
+#navigation-overflow-clip {
+    overflow: hidden;
+}
+
+#navigation-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: fit-content;
+    translate: calc(-100% + 2rem) 0;
+    transition: translate 0.3s ease-out;
+}
+
+#navigation:hover {
+    width: var(--link-width);
+}
+
+#navigation:hover #navigation-content {
+    translate: 0 0;
+}
+
+@keyframes navigation-hover {
+    from {
+        translate: 0 0;
+    }
+    to {
+        translate: 3rem 0;
+    }
+}
+
+#navigation ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: none;
+    height: min-content;
 
     z-index: 1;
-}
-
-#navigation:hover > ul {
-    display: block;
 }
 
 #navigation li {
     width: min-content;
 }
 
-#navigation:hover #current-header {
-    display: none;
-}
-
 #current-header {
-    width: 1em;
+    width: 2rem;
+    line-height: 2rem;
     writing-mode: vertical-lr;
+    margin-left: 1rem;
 }
 
 #content {
@@ -313,7 +336,7 @@ p {
     width: 4em;
     height: 4em;
     margin: 0;
-    padding: 0.1em;
+    padding: 0.25em;
     border: 0.25em solid var(--primary-color);
     border-radius: 50%;
     mask: linear-gradient(white, white) content-box,
