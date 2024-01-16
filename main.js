@@ -11,7 +11,7 @@ const config = {
 let targetHeader = ''
 let longestHeaderLength = 0;
 
-let fillChar = '_';
+let fillChar = '+';
 
 const setTargetHeader = (value) => {
     if (typeof value !== 'string') {
@@ -32,8 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
     longestHeaderLength = Array.from(document.querySelectorAll('section'))
         .map(section => section.getAttribute('id').length)
         .reduce((max, number) => Math.max(max, number));
-    document.querySelector('#current-header').textContent = '-'.repeat(longestHeaderLength);
+    document.getElementById('current-header').textContent = '-'.repeat(longestHeaderLength);
     setTargetHeader(document.querySelector('section').id);
+
+    document.querySelectorAll('div.skill-gauge h3').forEach((gauge) => {
+        gauge.style.top = Math.random() * 50 + '%';
+        gauge.style.left = Math.random() * 50 + '%';
+    })
 });
 
 document.addEventListener('scroll', () => {

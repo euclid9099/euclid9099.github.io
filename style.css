@@ -289,6 +289,54 @@ p {
     transform: translateY(-50%);
 }
 
+#skills > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.skill-gauge {
+    position: relative;
+    aspect-ratio: 1;
+}
+
+@property --confidence {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true
+}
+
+.skill-gauge h3 {
+    position: absolute;
+    text-align: center;
+    line-height: 4em;
+    width: 4em;
+    height: 4em;
+    margin: 0;
+    padding: 0.1em;
+    border: 0.25em solid var(--primary-color);
+    border-radius: 50%;
+    mask: linear-gradient(white, white) content-box,
+        conic-gradient(from 180deg at 50% 50%, white var(--confidence), transparent 0%) border-box;
+}
+
+@supports (animation-timeline: view()) {
+    .skill-gauge h3 {
+        animation-timeline: view(70vh 0);
+        animation-name: progress;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes progress {
+        from {
+            --confidence: 0%;
+        }
+        25% {
+            --confidence: 0%;
+        }
+    }
+}
+
 #impressum {
 
 }
