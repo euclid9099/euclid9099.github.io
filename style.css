@@ -445,6 +445,7 @@ article.project::after {
 }
 
 .parallax:first-of-type {
+    z-index: -1;
     position: fixed;
     top: 0;
     left: 0;
