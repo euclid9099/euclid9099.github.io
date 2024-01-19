@@ -75,7 +75,7 @@ p {
 .button-md {
     height: 3rem;
     width: 3rem;
-    margin: 0.5rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 .button-md:hover,.button-md:focus-visible {
@@ -203,22 +203,30 @@ p {
 #links {
     position: fixed;
     left: 0;
-    top: 50vh;
+    top: 50svh;
     transform: translateY(-50%);
     padding: 1rem;
+    width: 3rem;
+
+    z-index: 5;
 
     border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
     border-width: 0 var(--border-width) 0 0;
     border-style: solid;
+
+    background-color: var(--bg-color);
 }
 
 #links::before,#links::after {
     content: '';
     display: block;
     width: 3rem;
-    height: 0;
+    height: 6rem;
+
+    background-color: var(--bg-color);
 
     position: absolute;
+    z-index: -5;
     right: calc(-1 * var(--border-width));
 }
 
@@ -236,10 +244,34 @@ p {
     border-bottom: var(--accent-color) var(--border-width) solid;
 }
 
-#links > ul {
+#links-overflow-clip {
+    overflow: clip;
+    overflow-clip-margin: 0.5rem;
+}
+
+#links-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    translate: -3rem 0;
+    width: fit-content;
+    transition: translate 0.3s ease-out;
+}
+
+#responsive-description {
+    width: 2rem;
+    line-height: 2rem;
+    writing-mode: vertical-lr;
+    margin-right: 1rem;
+}
+
+#links ul {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    z-index: 10;
 }
 
 #navigation {
@@ -254,18 +286,25 @@ p {
     padding: 1rem;
     width: 2rem;
 
+    z-index: 5;
+
     border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
     border-width: 0 0 0 var(--border-width);
     border-style: solid;
+
+    background-color: var(--bg-color);
 }
 
 #navigation::before,#navigation::after {
     content: '';
     display: block;
     width: 3rem;
-    height: 0;
+    height: 6rem;
+
+    background-color: var(--bg-color);
 
     position: absolute;
+    z-index: -5;
     left: calc(-1 * var(--border-width));
 }
 
@@ -299,6 +338,7 @@ p {
 
 #navigation:hover {
     width: calc(var(--link-width) * 1ch);
+    opacity: 1;
 }
 
 #navigation:hover #navigation-content {
@@ -335,13 +375,51 @@ p {
 }
 
 #content {
-    width: max(50vw);
+    width: 50vw;
     margin-inline: auto;
 }
 
 @media screen and (max-width: 600px) {
     #content {
         width: 90vw;
+    }
+
+    #navigation {
+        opacity: 0.4;
+        top: 0;
+        transform: unset;
+    }
+
+    #links {
+        opacity: 0.4;
+        width: 2rem;
+        top: unset;
+        bottom: 0;
+        transform: unset;
+        transition: 
+            translate 0.3s ease-out,
+            width 0.3s ease-out;
+    }
+
+    #links-overflow-clip {
+        overflow-clip-margin: 0;
+    }
+
+    #links-content {
+        translate: 0 0;
+    }
+
+    #links:hover {
+        opacity: 1;
+        width: 3rem;
+    }
+
+    #links:hover #links-overflow-clip {
+        overflow-clip-margin: 0.5rem;
+    }
+
+    #links:hover #links-content {
+        translate: -3rem 0;
     }
 }
 
