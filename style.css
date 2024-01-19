@@ -67,7 +67,7 @@ p {
     box-shadow: 0rem 0rem 0 var(--font-color);
 }
 
-.button svg {
+.button svg, .button .icon {
     height: 65%;
     width: 65%;
 }
@@ -78,8 +78,45 @@ p {
     margin: 0.5rem;
 }
 
-.button-md:hover {
+.button-md:hover,.button-md:focus-visible {
     box-shadow: 0.25rem -0.25rem 0 var(--font-color);
+}
+
+.button:hover .icon {
+    background-image: linear-gradient(to bottom right, var(--primary-color), var(--accent-color));
+}
+
+.icon.icon {
+    background-color: var(--font-color);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+}
+
+.icon-github {
+    -webkit-mask: url(icons/github.svg);
+    mask: url(icons/github.svg);
+}
+
+.icon-discord {
+    -webkit-mask: url(icons/discord.svg);
+    mask: url(icons/discord.svg);
+}
+
+.icon-mail {
+    -webkit-mask: url(icons/mail.svg);
+    mask: url(icons/mail.svg);
+}
+
+.icon-warning {
+    -webkit-mask: url(icons/warning.svg);
+    mask: url(icons/warning.svg);
+}
+
+.icon-source {
+    -webkit-mask: url(icons/source.svg);
+    mask: url(icons/source.svg);
 }
 
 .hyperlink {
@@ -381,7 +418,7 @@ p {
 }
 
 article.project {
-    border-image: linear-gradient(to bottom, var(--primary-color), var(--accent-color)) 1;
+    border-image: linear-gradient(to bottom right, var(--primary-color), var(--accent-color)) 1;
     border-style: solid;
     border-width: 1px;
 
