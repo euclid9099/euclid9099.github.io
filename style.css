@@ -20,7 +20,7 @@
 }
 
 :root {
-    font-family: Roboto Mono;
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
     background-color: var(--bg-color);
     color: var(--font-color);
 }
@@ -82,7 +82,8 @@ p {
     box-shadow: 0.25rem -0.25rem 0 var(--font-color);
 }
 
-.button:hover .icon {
+.button:hover .icon,
+.button:focus-visible .icon {
     background-image: linear-gradient(to bottom right, var(--primary-color), var(--accent-color));
 }
 
@@ -125,12 +126,12 @@ p {
     text-decoration-color: var(--font-color);
 }
 
-.hyperlink:hover {
+.hyperlink:hover,.hyperlink:focus-visible {
     color: var(--primary-color);
     text-decoration-color: var(--primary-color);
 }
 
-.hyperlink:visited:hover {
+.hyperlink:visited:hover,.hyperlink:visited:focus-visible {
     color: var(--accent-color);
     text-decoration-color: var(--accent-color);
 }
@@ -426,16 +427,22 @@ p {
         translate: 0 0;
     }
 
-    #links:hover {
+    #links:hover,
+    #links:focus,
+    #links:has(:focus) {
         opacity: 1;
         width: 3rem;
     }
 
-    #links:hover #links-overflow-clip {
+    #links:hover #links-overflow-clip,
+    #links:focus #links-overflow-clip,
+    #links:has(:focus) #links-overflow-clip {
         overflow-clip-margin: 0.5rem;
     }
 
-    #links:hover #links-content {
+    #links:hover #links-content,
+    #links:focus #links-content,
+    #links:has(:focus) #links-content {
         translate: -3rem 0;
     }
 }

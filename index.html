@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hi and welcome to my portfolio. I'm Euclid9099, a soon-to-be software engineer, currently studying for the last year at high school">
     <title>Euclid9099 Portfolio</title>
     <link rel="icon" type="image/x-icon" href="favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+    </noscript>
+
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
 </head>
 
 <body>
-    <aside id="links" tabindex="1">
+    <aside id="links" tabindex="0">
         <div id="links-overflow-clip">
             <div id="links-content">
                 <h2 id="responsive-description">Links</h2>
@@ -44,7 +52,7 @@
             </div>
         </div>
     </aside>
-    <nav id="navigation" tabindex="2">
+    <nav id="navigation" tabindex="0">
         <div id="navigation-overflow-clip">
             <div id="navigation-content">
                 <ul>
@@ -69,7 +77,7 @@
         </div>
     </nav>
     <main id="content">
-        <section id="welcome">
+        <section tabindex="0" id="welcome">
             <div>
                 <h2>Hi, I'm</h2>
                 <h1 id="name" class="gradient-text glint">Euclid9099</h1>
@@ -78,15 +86,16 @@
                     both software related and exploring the world.</p>
             </div>
         </section>
-        <section id="about-me">
+        <section tabindex="0" id="about-me">
             <h2 class="subtitle glint">About Me</h2>
             <p>My name is Kevin, and as you've read, I'm currently still in school. My interests lie anywhere
                 uncommon, no matter the context.</p>
             <p>After school I want to finally start working. Hopefully I can move to another country, I'd love exploring
                 different cultures</p>
         </section>
-        <section id="skills">
+        <section tabindex="0" id="skills">
             <h2 class="subtitle glint">Skills</h2>
+            <p>Measurements are just placeholders!</p>
             <div>
                 <!--TODO: accurate assessments, list actual fields I use(d)-->
                 <!--
@@ -135,6 +144,11 @@
                     </div>
                 </div>
                 <div class="skill-gauge">
+                    <div style="--confidence: 70%">
+                        <p>Project Management</p>
+                    </div>
+                </div>
+                <div class="skill-gauge">
                     <div style="--confidence: 95%">
                         <p>English</p>
                     </div>
@@ -146,7 +160,7 @@
                 </div>
             </div>
         </section>
-        <section id="projects">
+        <section tabindex="0" id="projects">
             <h2 class="subtitle glint">Projects</h2>
             <div>
                 <article class="project">
@@ -155,7 +169,8 @@
                         OurTanks was a school project, reimplementing a favourite game of mine.
                     </p>
                     <footer class="project-footer">
-                        <a class="button button-md" href="config:ourTanks" target="_blank">
+                        <a class="button button-md" href="config:ourTanks" target="_blank"
+                            aria-label="Full 'OurTanks' github project">
                             <span class="icon icon-source"></span>
                         </a>
                     </footer>
@@ -166,7 +181,8 @@
                         Kornelja was a web development project, written with front-end rust & deno as a server.
                     </p>
                     <footer class="project-footer">
-                        <a class="button button-md" href="config:kornelja" target="_blank">
+                        <a class="button button-md" href="config:kornelja" target="_blank"
+                            aria-label="Full 'Kornelja' github project">
                             <span class="icon icon-source"></span>
                         </a>
                     </footer>
@@ -177,22 +193,23 @@
                         Monhike is an in-development diploma project done in cooperation with two other classmates.
                     </p>
                     <footer class="project-footer">
-                        <a class="button button-md" href="config:monhike" target="_blank">
+                        <a class="button button-md" href="config:monhike" target="_blank"
+                            aria-label="Full 'Monhike' github project">
                             <span class="icon icon-source"></span>
                         </a>
                     </footer>
                 </article>
             </div>
         </section>
-        <section id="timeline">
+        <section tabindex="0" id="timeline">
             <h2 class="subtitle glint">Timeline</h2>
             <div class="timeline-graphic">
-                <img src="timeline.svg">
+                <img alt="Past and current job relevant activities (education, internship, jobs)" src="timeline.svg">
             </div>
         </section>
 
         <footer id="impressum">
-            <p>Designed and Built by [REDACTED] @ 2024</p>
+            <p>Designed and Built by Kevin Stitz @ 2024</p>
         </footer>
     </main>
 
