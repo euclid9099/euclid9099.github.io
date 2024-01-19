@@ -215,6 +215,11 @@ p {
     border-style: solid;
 
     background-color: var(--bg-color);
+
+    --offset: calc(sqrt(2) * -1.5rem);
+    box-shadow: 
+        var(--bg-color) var(--offset) var(--offset),
+        var(--bg-color) var(--offset) calc(-1*var(--offset));
 }
 
 #links::before,#links::after {
@@ -293,6 +298,11 @@ p {
     border-style: solid;
 
     background-color: var(--bg-color);
+
+    --offset: calc(sqrt(2) * 1.5rem);
+    box-shadow: 
+        var(--bg-color) var(--offset) var(--offset),
+        var(--bg-color) var(--offset) calc(-1*var(--offset));
 }
 
 #navigation::before,#navigation::after {
@@ -323,7 +333,8 @@ p {
 }
 
 #navigation-overflow-clip {
-    overflow: hidden;
+    overflow: clip;
+    overflow-clip-margin: 0.5rem;
 }
 
 #navigation-content {
@@ -384,21 +395,25 @@ p {
         width: 90vw;
     }
 
+    #navigation,#links {
+        opacity: 0.25;
+        transform: unset;
+        transition: all 0.3s ease-out;
+    }
+
     #navigation {
-        opacity: 0.4;
+        opacity: 0.25;
         top: 0;
         transform: unset;
     }
 
     #links {
-        opacity: 0.4;
+        opacity: 0.25;
         width: 2rem;
         top: unset;
         bottom: 0;
         transform: unset;
-        transition: 
-            translate 0.3s ease-out,
-            width 0.3s ease-out;
+        transition: all 0.3s ease-out;
     }
 
     #links-overflow-clip {
@@ -598,8 +613,8 @@ article.project::after {
         background-size: 100% 50%;
         opacity: calc((1 - var(--level) / 10)/3);
 
-        -webkit-mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100% 50%;
-        mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100% 50%;
+        -webkit-mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100%;
+        mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100%;
 
         animation-timeline: scroll();
         animation-name: parallax;
