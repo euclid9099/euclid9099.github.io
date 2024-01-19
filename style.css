@@ -2,7 +2,7 @@
     --font-color: #31003d;
     --bg-color: #ced4e9;
     --primary-color: #1916d3;
-    --accent-color: #954c93;
+    --accent-color: #b61233;
     --similitude: 255, 255, 255;
     --contrast: 0, 0, 0;
     --border-width: 3px;
@@ -465,6 +465,18 @@ article.project::after {
 .project-footer {
     display: flex;
     justify-content: center;
+}
+
+.timeline-graphic {
+    background-image: linear-gradient(to bottom, var(--font-color) 90%, transparent 95%);
+    mask-image: url(timeline.svg);
+    mask-size: contain;
+    margin-inline: auto;
+}
+
+.timeline-graphic img {
+    width: 100%;
+    visibility: hidden;
 }
 
 #impressum {
