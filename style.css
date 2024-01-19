@@ -347,12 +347,14 @@ p {
     transition: translate 0.3s ease-out;
 }
 
-#navigation:hover {
+#navigation:hover,#navigation:focus,#navigation:has(:focus) {
     width: calc(var(--link-width) * 1ch);
     opacity: 1;
 }
 
-#navigation:hover #navigation-content {
+#navigation:hover #navigation-content,
+#navigation:focus #navigation-content,
+#navigation:has(:focus) #navigation-content {
     translate: 0 0;
 }
 
@@ -459,7 +461,7 @@ p {
 
 .skill-gauge {
     position: relative;
-    aspect-ratio: 1;
+    height: 200px;
 }
 
 @property --confidence {
