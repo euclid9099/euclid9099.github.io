@@ -1,10 +1,10 @@
 const config = {
     links: {
-        discord: 'https://example.com/discord',
+        discord: 'https://discord.com/users/633629770818781184',
         github: 'https://github.com/euclid9099',
-        mail: 'mailto:mail@example.com',
+        mail: 'mailto:kevast2004@gmail.com',
         issues: 'https://github.com/euclid9099/portfolio/issues/new',
-        school: 'https://example.org/school',
+        school: 'https://www.htlsaalfelden.at',
         ourTanks: 'https://github.com/euclid9099/OurTanks',
         kornelja: 'https://github.com/euclid9099/messageboard',
         monhike: 'https://github.com/stephan418/monhike',
@@ -15,7 +15,7 @@ const config = {
 let targetHeader = ''
 let longestHeaderLength = 0;
 
-let fillChar = '+';
+let fillChar = '.';
 
 const setTargetHeader = (value) => {
     if (typeof value !== 'string') {
