@@ -1,6 +1,5 @@
 const config = {
     links: {
-        discord: 'https://discord.com/users/633629770818781184',
         github: 'https://github.com/euclid9099',
         mail: 'mailto:kevast2004@gmail.com',
         issues: 'https://github.com/euclid9099/portfolio/issues/new',
@@ -41,10 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         .reduce((max, number) => Math.max(max, number));
     document.getElementById('current-header').textContent = fillChar.repeat(longestHeaderLength);
     setTargetHeader(document.querySelector('section').id);
-
-    document.querySelectorAll('.glint').forEach((text) => {
-        text.style.setProperty('--glint-text', `"${text.textContent}"`);
-    });
 
     //get width of navigation for clean animation
     document.getElementById('navigation').style.setProperty('--link-width', longestHeaderLength);
