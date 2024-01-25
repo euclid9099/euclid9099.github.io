@@ -50,7 +50,7 @@ h3 {
 }
 
 p {
-    font-size: 24px;
+    font-size: 20px;
     margin-top: 0;
 }
 
@@ -70,6 +70,11 @@ p {
     
     transition: box-shadow 0.25s ease-out;
     box-shadow: 0rem 0rem 0 var(--font-color);
+}
+
+.button[aria-disabled] {
+    filter: grayscale();
+    pointer-events: none;
 }
 
 .button svg, .button .icon {
@@ -508,7 +513,7 @@ p {
     margin: 0;
     padding: 0.1em;
     background-color: rgba(var(--similitude), 0.2);
-    border: 0.25em solid var(--primary-color);
+    border: 0.5em solid var(--primary-color);
     border-radius: 50%;
     mask: linear-gradient(white, white) content-box,
         conic-gradient(from 180deg at 50% 50%, white var(--confidence), transparent 0%) border-box;
@@ -610,6 +615,9 @@ article.project::after {
     border-style: groove;
 
     min-height: 10vh;
+    max-width: max(50vw, 600px);
+
+    margin-inline: auto;
 }
 
 #impressum p {

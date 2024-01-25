@@ -2,7 +2,7 @@ const config = {
     links: {
         github: 'https://github.com/euclid9099',
         mail: 'mailto:kevast2004@gmail.com',
-        issues: 'https://github.com/euclid9099/portfolio/issues/new',
+        issues: 'https://github.com/euclid9099/euclid9099.github.io/issues/new',
         school: 'https://www.htlsaalfelden.at',
         ourTanks: 'https://github.com/euclid9099/OurTanks',
         kornelja: 'https://github.com/euclid9099/messageboard',
