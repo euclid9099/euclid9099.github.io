@@ -198,17 +198,12 @@ p {
     left: 0;
 }
 
-.subtitle.glint::before {
-    left: 1rem;
-}
-
 #links {
     position: fixed;
     left: 0;
     top: 50dvh;
     transform: translateY(-50%);
-    padding: 1rem;
-    width: 3rem;
+    width: 5rem;
 
     z-index: 5;
 
@@ -252,8 +247,8 @@ p {
 }
 
 #links-overflow-clip {
-    overflow: clip;
-    overflow-clip-margin: 0.5rem;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 #links-content {
@@ -290,8 +285,7 @@ p {
     right: 0;
     top: 50dvh;
     transform: translateY(-50%);
-    padding: 1rem;
-    width: 2rem;
+    width: 4rem;
 
     z-index: 5;
 
@@ -335,8 +329,8 @@ p {
 }
 
 #navigation-overflow-clip {
-    overflow: clip;
-    overflow-clip-margin: 0.5rem;
+    overflow: hidden;
+    padding: 1rem;
 }
 
 #navigation-content {
@@ -350,7 +344,7 @@ p {
 }
 
 #navigation:hover,#navigation:focus,#navigation:has(:focus) {
-    width: calc(var(--link-width) * 1ch);
+    width: calc(var(--link-width) * 1ch + 2rem);
     opacity: 1;
 }
 
@@ -423,15 +417,11 @@ p {
 
     #links {
         opacity: 0.25;
-        width: 2rem;
+        width: 4rem;
         top: unset;
         bottom: 0;
         transform: unset;
         transition: all 0.3s ease-out;
-    }
-
-    #links-overflow-clip {
-        overflow-clip-margin: 0;
     }
 
     #links-content {
@@ -442,13 +432,7 @@ p {
     #links:focus,
     #links:has(:focus) {
         opacity: 1;
-        width: 3rem;
-    }
-
-    #links:hover #links-overflow-clip,
-    #links:focus #links-overflow-clip,
-    #links:has(:focus) #links-overflow-clip {
-        overflow-clip-margin: 0.5rem;
+        width: 5rem;
     }
 
     #links:hover #links-content,
@@ -469,6 +453,25 @@ p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#portrait {
+    float: right;
+    margin: 0 0 1.5rem 1.5rem;
+    max-width: 50%;
+    max-height: 50svh;
+    
+    mask: linear-gradient(-45deg, transparent 10%, white 10% 90%, transparent 90%);
+}
+
+@media screen and (max-width: 600px) {
+    #portrait {
+        float: none;
+        max-width: 90%;
+        max-height: 100%;
+
+        margin: 5%;
+    }
 }
 
 #skills > div {
