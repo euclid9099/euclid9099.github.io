@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <aside id="links" class="fade-out">
+    <aside id="links" class="fade-out" tabindex="-1">
         <div id="links-overflow-clip">
             <div id="links-content">
                 <h2 id="responsive-description">Links</h2>
@@ -47,7 +47,7 @@
             </div>
         </div>
     </aside>
-    <nav id="navigation" class="fade-out">
+    <nav id="navigation" class="fade-out" tabindex="-1">
         <div id="navigation-overflow-clip">
             <div id="navigation-content">
                 <ul>
@@ -72,6 +72,7 @@
         </div>
     </nav>
     <main id="content">
+        <dialog id="dialog"></dialog>
         <section id="welcome">
             <div>
                 <h2>Hi, I'm</h2>
@@ -105,94 +106,39 @@
             <div>
                 <div class="skill-gauge">
                     <div style="--confidence: 60%">
-                        <p>Algorithms</p>
+                        <p>Algorithms
+                            <button onclick="showDialog('algorithms')" class="button button-xs button-centered">
+                                <span class="icon icon-info"></span>
+                            </button>
+                        </p>
                     </div>
-                    <!--
-                        Hey, I don't want to sound completely subjective, so here's my reasoning.
-                        Soon(tm), I want to implement this way easier with hover/focus elements but for now this is better than nothing
-
-                        Method: 
-                            CodeWars, all katas tagged with 'Algorithm', any language:
-                            1 - 8 points per kata (depending on difficulty)
-                            
-                            Self Assessment:
-                            0-4 points (self-judgement)
-
-                        8kyu: [python]  https://www.codewars.com/kata/582cb0224e56e068d800003c
-                        7kyu: [haskell] https://www.codewars.com/kata/65112af7056ad6004b5672f8
-                        6kyu: [haskell] https://www.codewars.com/kata/514b92a657cdc65150000006
-                        5kyu: [rust]    https://www.codewars.com/kata/52597aa56021e91c93000cb0
-                        4kyu: [python]  https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1
-                        3kyu: [python]  https://www.codewars.com/kata/52bb6539a4cf1b12d90005b7
-                        2kyu: [fail]    https://www.codewars.com/kata/52a78825cdfc2cfc87000005
-                        1kyu: [fail]    https://www.codewars.com/kata/5265b0885fda8eac5900093b
-
-                        personal judgement: 3/4
-
-                        Total: 1+2+3+4+5+6+0+0+3 = 24 / 40
-                    -->
                 </div>
                 <div class="skill-gauge">
-                    <div style="--confidence: 10%">
-                        <p>Functional Programming</p>
+                    <div style="--confidence: 40%">
+                        <p>Functional Programming
+                            <button onclick="showDialog('functional')" class="button button-xs button-centered">
+                                <span class="icon icon-info"></span>
+                            </button>
+                        </p>
                     </div>
-                    <!--
-                        Method: 
-                            CodeWars, all katas tagged with 'Functional Programming', take the top by popularity, solve using any language:
-                                1 - 8 points per completed kata (depending on difficulty)
-                            
-                            Self assessment:
-                                0-10 points (self-judgement)
-
-                        [ongoing]
-
-                        personal judgement: 1/4
-
-                        Total: 1 = 1 / 10
-                    -->
                 </div>
                 <div class="skill-gauge">
                     <div style="--confidence: 46%">
-                        <p>Web Dev</p>
+                        <p>Web Dev
+                            <button onclick="showDialog('web')" class="button button-xs button-centered">
+                                <span class="icon icon-info"></span>
+                            </button>
+                        </p>
                     </div>
-                    <!--
-                        Method: 
-                            Stackoverflow developer survey 3023, top 5 used web framework:
-                                0-4 self-assessed points
-
-                            additional self assessment:
-                                0-4 points (self-judgement)
-
-                        React: 2 (used for projects, but not too much)
-                        Node.js: 2 (I think it is basically just a way to run JS, but I'm uncertain about how much I do not know)
-                        jQuery: 1 (I prefer vanilla JS, but I use jQuery at work)
-                        Angular: 2 (We currently learn it "intensively" at school)
-                        Express: 1 (Used it in school once, used similar framework "Oak" in deno)
-
-                        personal judgement: 3/4 (I know JS, TS, got somewhat familiar with deno and different reactive frameworks
-                            and worked in this project alone with quite a bit of HTML & CSS)
-
-                        Total: 2 + 2 + 1 + 2 + 1 + 3 = 11 / 24
-                    -->
                 </div>
                 <div class="skill-gauge">
                     <div style="--confidence: 75%">
-                        <p>Project Management</p>
+                        <p>Project Management
+                            <button onclick="showDialog('project')" class="button button-xs button-centered">
+                                <span class="icon icon-info"></span>
+                            </button>
+                        </p>
                     </div>
-                    <!--
-                        Method:
-                            School grade:
-                                0-4 points (5 - grade from 1 to 5)
-
-                            Self assessment:
-                                0-4 points (self-judgement)
-                        
-                        Grade: 4 (got a 1, or the best grade, in project management)
-
-                        Personal judgement: 2 (Worked in large and small companies, did a project the last three years in school)
-
-                        Total: 4 + 2 = 6 / 8
-                    -->
                 </div>
                 <div class="skill-gauge">
                     <div style="--confidence: 92%">
@@ -289,5 +235,7 @@
     <div class="parallax" style="--level: 2"></div>
     <div class="parallax" style="--level: 4"></div>
 </body>
+
+<script src="info.js"></script>
 
 </html>
