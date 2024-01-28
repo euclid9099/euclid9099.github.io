@@ -84,7 +84,9 @@
         </section>
         <section id="about-me">
             <h2 class="subtitle glint">About Me</h2>
-            <img id="portrait" src="portrait.jpg" alt="Portrait of Kevin Stitz" loading="lazy">
+            <img id="portrait"
+                srcset="portrait/kevin256.jpg 256w, portrait/kevin750.jpg 750w, portrait/kevin990.jpg 990w, portrait/kevin1190.jpg 1190w, portrait/kevin1350.jpg 1350w, portrait/kevin1500.jpg 1500w"
+                alt="Portrait of Kevin Stitz" loading="lazy">
             <p>
                 My name is Kevin, and I'm a dedicated software engineering student. When I'm not passionately coding up
                 new projects (or at least trying to do so), I like to maintain my personal health by working out and
@@ -97,7 +99,7 @@
             </p>
             <p>
                 Long-term, I want to use the benefits of digital work to explore the world. Discovering as much as
-                possible on this blue bubble is a long term goal I can never finish, which means it will always spark
+                possible on this blue planet is a long term goal I can never finish, which means it will always spark
                 excitement.
             </p>
         </section>
@@ -107,7 +109,8 @@
                 <div class="skill-gauge">
                     <div style="--confidence: 60%">
                         <p>Algorithms
-                            <button onclick="showDialog('algorithms')" class="button button-xs button-centered">
+                            <button aria-label="Additional information about the 'Algorithm' rating"
+                                onclick="showDialog('algorithms')" class="button button-xs button-centered">
                                 <span class="icon icon-info"></span>
                             </button>
                         </p>
@@ -116,7 +119,8 @@
                 <div class="skill-gauge">
                     <div style="--confidence: 40%">
                         <p>Functional Programming
-                            <button onclick="showDialog('functional')" class="button button-xs button-centered">
+                            <button aria-label="Additional information about the 'Functional Programming' rating"
+                                onclick="showDialog('functional')" class="button button-xs button-centered">
                                 <span class="icon icon-info"></span>
                             </button>
                         </p>
@@ -125,7 +129,8 @@
                 <div class="skill-gauge">
                     <div style="--confidence: 46%">
                         <p>Web Dev
-                            <button onclick="showDialog('web')" class="button button-xs button-centered">
+                            <button aria-label="Additional information about the 'Web development' rating"
+                                onclick="showDialog('web')" class="button button-xs button-centered">
                                 <span class="icon icon-info"></span>
                             </button>
                         </p>
@@ -134,7 +139,8 @@
                 <div class="skill-gauge">
                     <div style="--confidence: 75%">
                         <p>Project Management
-                            <button onclick="showDialog('project')" class="button button-xs button-centered">
+                            <button aria-label="Additional information about the 'Project Management' rating"
+                                onclick="showDialog('project')" class="button button-xs button-centered">
                                 <span class="icon icon-info"></span>
                             </button>
                         </p>
@@ -228,7 +234,7 @@
     </main>
 
     <footer id="impressum">
-        <p>Designed and Built by Kevin Stitz @ 2024</p>
+        <p>Designed and Built by Kevin Stitz | 2024</p>
     </footer>
 
     <div class="parallax" style="--level: 1"></div>
