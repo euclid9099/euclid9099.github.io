@@ -1,8 +1,8 @@
 :root {
     --font-color: #31003d;
     --bg-color: #ced4e9;
-    --primary-color: #1916d3;
-    --accent-color: #b61233;
+    --primary-color: #00c6e0;
+    --accent-color: #ff05f7;
     --similitude: 255, 255, 255;
     --contrast: 0, 0, 0;
     --border-width: 3px;
@@ -551,8 +551,7 @@ td {
 #portrait {
     float: right;
     margin: 0 0 1.5rem 1.5rem;
-    max-width: 50%;
-    max-height: 50svh;
+    width: min(50%, 400px);
     
     mask: linear-gradient(-45deg, transparent 10%, white 10% 90%, transparent 90%);
 }
@@ -741,8 +740,10 @@ article.project::after {
         background-size: 100% 50%;
         opacity: calc((1 - var(--level) / 10)/3);
 
-        -webkit-mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100%;
-        mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level)) / 100%;
+        -webkit-mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level));
+        -webkit-mask-size: auto 50%;
+        mask: url(background.svg) calc(-13vw * var(--level)) calc(-17% * var(--level));
+        mask-size: auto 50%;
 
         animation-timeline: scroll();
         animation-name: parallax;
@@ -753,6 +754,12 @@ article.project::after {
     @keyframes parallax {
         from {
             translate: 0 0;
+        }
+        25%,75% {
+            opacity: 0%;
+        }
+        50% {
+            opacity: calc(1 - var(--level) / 10);
         }
         to {
             translate: 0 -50%;
