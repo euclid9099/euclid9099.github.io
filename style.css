@@ -252,9 +252,6 @@ td {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.glint:hover {
     animation: glint 5s linear infinite;
 }
 

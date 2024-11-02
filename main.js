@@ -6,7 +6,7 @@ const config = {
         school: 'https://www.htlsaalfelden.at',
         ourTanks: 'https://github.com/euclid9099/OurTanks',
         kornelja: 'https://github.com/euclid9099/messageboard',
-        monhike: 'https://github.com/stephan418/monhike',
+        monhike: 'mailto:kevast2004@gmail.com?subject=Monhike further information',
     },
     corners: 4
 }
