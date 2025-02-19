@@ -1,6 +1,7 @@
 const config = {
     links: {
         github: 'https://github.com/euclid9099',
+        linkedin: 'https://www.linkedin.com/in/kevin-alexander-stitz-369451345',
         mail: 'mailto:kevast2004@gmail.com',
         issues: 'https://github.com/euclid9099/euclid9099.github.io/issues/new',
         school: 'https://www.htlsaalfelden.at',

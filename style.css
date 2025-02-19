@@ -148,6 +148,11 @@ p {
     mask: url(icons/github.svg);
 }
 
+.icon-linkedin {
+    -webkit-mask: url(icons/linkedin.svg);
+    mask: url(icons/linkedin.svg);
+}
+
 .icon-discord {
     -webkit-mask: url(icons/discord.svg);
     mask: url(icons/discord.svg);
