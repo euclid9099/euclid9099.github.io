@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('navigation').style.setProperty('--link-width', longestHeaderLength);
 
     //randomly use corners for projects
-    document.querySelectorAll('article.project').forEach((project) => {
-        project.style.setProperty('--corner-svg', `url(corners/corner${Math.floor(Math.random() * config.corners)}.svg)`);
+    document.querySelectorAll('article').forEach((article) => {
+        article.style.setProperty('--corner-svg', `url(corners/corner${Math.floor(Math.random() * config.corners)}.svg)`);
     });
 });
 

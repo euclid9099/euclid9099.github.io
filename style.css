@@ -631,10 +631,18 @@ td {
     margin-top: 3rem;
 }
 
-article.project {
+#education > div,
+#experience > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(700, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+article {
     border-image: linear-gradient(to bottom right, var(--primary-color), var(--accent-color)) 1;
     border-style: solid;
-    border-width: 1px;
+    border-width: 1.5px;
 
     position: relative;
     overflow: visible;
@@ -642,7 +650,7 @@ article.project {
     background-color: rgba(var(--similitude), 0.2);
 }
 
-article.project::before,article.project::after {
+article::before,article::after {
     content: '';
     position: absolute;
     width: 3rem;
@@ -652,14 +660,14 @@ article.project::before,article.project::after {
     mask-size: contain;
 }
 
-article.project::before {
+article::before {
     top: 0;
     left: 0;
     translate: calc((10/70) * -100%) -20%;
     background: var(--primary-color);
 }
 
-article.project::after {
+article::after {
     bottom: 0;
     right: 0;
     translate: calc((10/70) * 100%) 20%;
@@ -667,30 +675,23 @@ article.project::after {
     background: var(--accent-color);
 }
 
-.project-title {
+article > h3 {
     text-align: center;
     margin-top: 0.25em;
 }
 
-.project-description {
+article > p {
     margin: 0.5rem;
 }
 
-.project-footer {
+article > footer {
     display: flex;
     justify-content: center;
 }
 
-.timeline-graphic {
-    background-image: linear-gradient(to bottom, var(--font-color) 90%, transparent 95%);
-    mask-image: url(timeline.svg);
-    mask-size: contain;
-    margin-inline: auto;
-}
-
-.timeline-graphic img {
-    width: 100%;
-    visibility: hidden;
+.timespan {
+    font-size: 0.85em;
+    font-weight: lighter;
 }
 
 #impressum {
